@@ -1,0 +1,161 @@
+<!doctype html>
+
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>YouTube Thumbnail Downloader — Xizoa Tool</title>
+  <style>
+    :root{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+    body{margin:0;background:#0f172a;color:#e6eef8;display:flex;min-height:100vh;align-items:center;justify-content:center;padding:24px}
+    .card{width:100%;max-width:820px;background:linear-gradient(180deg,#071033 0%, #081325 100%);border-radius:14px;padding:22px;box-shadow:0 8px 30px rgba(2,6,23,.6)}
+    h1{margin:0 0 8px;font-size:20px}
+    p.lead{margin:0 0 18px;color:#9fb0d6}
+    .row{display:flex;gap:10px}
+    input[type=text]{flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.06);background:transparent;color:inherit}
+    button{padding:10px 12px;border-radius:8px;border:0;background:#2563eb;color:white;font-weight:600;cursor:pointer}
+    .thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:18px}
+    .card-thumb{background:rgba(255,255,255,.02);padding:8px;border-radius:10px;text-align:center}
+    .card-thumb img{max-width:100%;height:110px;object-fit:cover;border-radius:6px;background:#071127}
+    .meta{font-size:13px;color:#9fb0d6;margin-top:8px}
+    .meta a{display:inline-block;margin-top:6px;padding:6px 8px;border-radius:6px;background:#0b1226;color:#cfe0ff;text-decoration:none;font-weight:600}
+    .note{font-size:13px;color:#9fb0d6;margin-top:12px}
+    footer{margin-top:16px;color:#84a0d6;font-size:13px}
+    .small{font-size:12px;color:#8aa0c8}
+    .hidden{display:none}
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <h1>YouTube Thumbnail Downloader</h1>
+    <p class="lead">Video URL ya ID daalo — tool automatically best available thumbnail pakdega. (maxres, hq, sd, default)</p><div class="row">
+  <input id="inputUrl" type="text" placeholder="YouTube URL ya Video ID (e.g. https://youtu.be/abcd1234 or abcd1234)" />
+  <button id="btnFetch">Get Thumbnails</button>
+</div>
+
+<div id="status" class="note hidden">Checking thumbnails…</div>
+
+<div id="thumbs" class="thumbs" aria-live="polite"></div>
+
+<div class="note">Tip: Agar direct download nahi hua, <span class="small">"Open Image"</span> pe click karke right-click → Save kar lo.</div>
+
+<footer>
+  Built for quick GitHub Pages deploy — drag this file to a repo and enable Pages. Feedback? Add issues on your repo.
+</footer>
+
+  </main>  <script>
+    const btn = document.getElementById('btnFetch');
+    const input = document.getElementById('inputUrl');
+    const thumbs = document.getElementById('thumbs');
+    const status = document.getElementById('status');
+
+    const variants = [
+      ['maxresdefault.jpg','Max Resolution (maxres)'],
+      ['sddefault.jpg','SD (sddefault)'],
+      ['hqdefault.jpg','High Quality (hq)'],
+      ['mqdefault.jpg','Medium Quality (mq)'],
+      ['default.jpg','Default (120×90)']
+    ];
+
+    function extractVideoID(text){
+      // Common YouTube URL patterns
+      const patterns = [
+        /(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([\w-]{11})/,
+        /(?:https?:\/\/)?(?:www\.)?youtube\.com\/v\/([\w-]{11})/,
+        /(?:https?:\/\/)?(?:www\.)?youtube\.com\/embed\/([\w-]{11})/,
+        /(?:https?:\/\/)?youtu\.be\/([\w-]{11})/,
+        /([\w-]{11})/ // fallback: any 11-char id
+      ];
+      for(const p of patterns){
+        const m = text.match(p);
+        if(m) return m[1];
+      }
+      return null;
+    }
+
+    async function checkImage(url){
+      // Try to fetch as a blob for reliable existence check. If CORS blocks, fallback to Image() loader.
+      try{
+        const res = await fetch(url, {method:'HEAD'});
+        if(res.ok) return true;
+      }catch(e){
+        // HEAD might be blocked; try loading an Image
+        return new Promise((resolve)=>{
+          const img = new Image();
+          img.onload = () => resolve(true);
+          img.onerror = () => resolve(false);
+          img.src = url + '?_=' + Date.now();
+        });
+      }
+      return false;
+    }
+
+    async function tryFetchAndDownload(url, filename){
+      // Attempt to fetch blob and trigger download; if fails open in new tab as fallback
+      try{
+        const r = await fetch(url);
+        if(!r.ok) throw new Error('not ok');
+        const blob = await r.blob();
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(()=>URL.revokeObjectURL(link.href), 60000);
+      }catch(err){
+        window.open(url, '_blank');
+      }
+    }
+
+    btn.addEventListener('click', async()=>{
+      const raw = input.value.trim();
+      if(!raw){alert('URL ya video ID daal');return}
+      const id = extractVideoID(raw);
+      if(!id){alert('Valid YouTube URL ya 11-char video ID daalo');return}
+
+      thumbs.innerHTML='';
+      status.classList.remove('hidden');
+      status.textContent = 'Checking thumbnails for ID: ' + id;
+
+      for(const [file, label] of variants){
+        const url = `https://img.youtube.com/vi/${id}/${file}`;
+        const exists = await checkImage(url);
+        const card = document.createElement('div');
+        card.className = 'card-thumb';
+        if(exists){
+          const img = document.createElement('img');
+          img.src = url;
+          img.alt = label;
+          card.appendChild(img);
+          const meta = document.createElement('div');
+          meta.className = 'meta';
+          meta.innerHTML = `<div>${label}</div>`;
+
+          const dl = document.createElement('a');
+          dl.href = '#';
+          dl.textContent = 'Download';
+          dl.addEventListener('click', (ev)=>{ev.preventDefault(); tryFetchAndDownload(url, id + '-' + file);});
+
+          const oi = document.createElement('a');
+          oi.href = url;
+          oi.target = '_blank';
+          oi.textContent = 'Open Image';
+          oi.style.marginLeft = '8px';
+
+          meta.appendChild(dl);
+          meta.appendChild(oi);
+          card.appendChild(meta);
+        }else{
+          card.innerHTML = `<div class="small">${label}<br><span class="small">Not available</span></div>`;
+        }
+        thumbs.appendChild(card);
+      }
+
+      status.classList.add('hidden');
+    });
+
+    // Allow Enter key
+    input.addEventListener('keydown', (e)=>{if(e.key==='Enter') btn.click();});
+  </script></body>
+</html>
