@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://YouTubethumbnaildownload.xizoa.com/sitemap.xml
+Sitemap: https://youtubethumbnaildownload.xizoa.com/sitemap.xml
