@@ -1,209 +1,198 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>About — YouTube Thumbnail Downloader</title>
-  <meta name="description" content="Download YouTube thumbnails from low to high quality. Fast, free, and no account required." />
-  <link rel="canonical" href="https://youtubethumbnaildownload.xizoa.com/" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>About Us — Xizoahub | YouTube Thumbnail Downloader</title>
+  <meta name="description" content="Xizoahub ek fast aur powerful online tools platform hai — YouTube thumbnail downloader, PDF tools, image converters aur creator utilities. Hum creators ke workflow ko easy banate hain.">
+
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://youtubethumbnaildownload.xizoa.com/about.html">
+  <link rel="icon" href="/favicon.ico">
+
+  <!-- OG Tags -->
+  <meta property="og:title" content="About Xizoahub — Creator Tools Platform">
+  <meta property="og:description" content="Xizoahub provides fast online tools — YouTube thumbnail downloader, PDF tools, converters, and creator utilities.">
+  <meta property="og:url" content="https://youtubethumbnaildownload.xizoa.com/about.html">
+  <meta property="og:image" content="https://youtubethumbnaildownload.xizoa.com/og-thumbnail.png">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
   <style>
-    :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --muted:#94a3b8;
-      --accent:#ff6b6b;
-      --glass: rgba(255,255,255,0.03);
-      --radius:12px;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color-scheme: dark;
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #05070a;
+      color: #e2e8f0;
+      padding: 0;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#081024 0%, #071426 100%);color:#e6eef8}
-    a{color:var(--accent);text-decoration:none}
-    header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-bottom:1px solid rgba(255,255,255,0.03)}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{
-      width:44px;height:44px;border-radius:10px;display:grid;place-items:center;font-weight:800;background:linear-gradient(135deg,#ff6b6b,#ffb86b);
-      color:#061126;font-size:18px
+
+    header {
+      background: rgba(5,7,10,0.8);
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
     }
-    nav a{margin-left:14px;color:var(--muted);font-weight:600}
-    main{max-width:1000px;margin:36px auto;padding:22px}
-    .grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
-    @media (max-width:900px){.grid{grid-template-columns:1fr;}.nav-right{display:none}}
-    .card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.02)}
-    h1{margin:0 0 8px;font-size:22px}
-    p.lead{color:var(--muted);margin:0 0 12px;line-height:1.5}
-    ul.features{margin:12px 0 18px;padding-left:18px;color:var(--muted)}
-    .cta{display:flex;gap:10px;align-items:center}
-    .btn{
-      display:inline-block;padding:10px 14px;border-radius:10px;font-weight:700;background:linear-gradient(90deg,var(--accent),#ffb86b);color:#061126;border:none;cursor:pointer;
-      box-shadow:0 6px 14px rgba(255,107,107,0.12);
+
+    .logo-xizoa {
+      font-size: 1.2rem;
+      font-weight: 800;
+      background: linear-gradient(to right, #fff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding: 5px 15px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.1);
     }
-    .mutebtn{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:8px 12px;border-radius:10px;font-weight:700;cursor:pointer}
-    .lang-switch{display:flex;gap:8px;margin-top:12px}
-    .small{font-size:13px;color:var(--muted)}
-    footer{max-width:1000px;margin:18px auto;padding:12px 22px;color:var(--muted);font-size:13px}
-    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--glass);border:1px solid rgba(255,255,255,0.02);font-weight:700;color:var(--muted);font-size:13px}
-    /* subtle accent line */
-    .accent-line{height:3px;border-radius:6px;background:linear-gradient(90deg,var(--accent),#ffb86b);margin:14px 0}
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.8;
+      color: #94a3b8;
+      font-size: 1rem;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 30px;
+      margin-top: 30px;
+      backdrop-filter: blur(8px);
+    }
+
+    footer {
+      background: #020305;
+      padding: 40px 20px;
+      margin-top: 60px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-col h4 { margin-top: 0; color: white; }
+    .footer-col a { display: block; color: #94a3b8; margin-bottom: 10px; }
+    .footer-col a:hover { color: #3b82f6; }
+
+    .copyright {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
   </style>
 </head>
+
 <body>
+
   <header>
-    <div class="brand">
-      <div class="logo">YT</div>
-      <div>
-        <div style="font-weight:800">xizoa — Thumbnail Tools</div>
-        <div style="font-size:13px;color:var(--muted)">Fast YouTube thumbnail downloader</div>
-      </div>
-    </div>
-    <nav class="nav-right">
-      <a href="index.html">Home</a>
-      <a href="tools.html">Tools</a>
-      <a href="about.html" style="color:#fff">About</a>
-      <a href="contact.html">Contact</a>
+    <div class="logo-xizoa">XIZOAHUB</div>
+    <nav>
+      <a href="/" style="color:white; margin-right:20px;">Home</a>
+      <a href="https://github.com/xizoahub" target="_blank" style="color:white;"><i class="fab fa-github"></i></a>
     </nav>
   </header>
 
   <main>
-    <div class="grid">
-      <section class="card">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
-          <div>
-            <h1>About — YouTube Thumbnail Downloader</h1>
-            <div class="small">Download thumbnails from low → highest available quality. No login. No fuss.</div>
-          </div>
-          <div style="text-align:right">
-            <div class="badge">Free • Instant</div>
-            <div style="height:8px"></div>
-            <div class="lang-switch">
-              <button class="mutebtn" id="show-en">English</button>
-              <button class="mutebtn" id="show-hi">Hinglish</button>
-            </div>
-          </div>
-        </div>
+    <h1>About Xizoahub</h1>
+    <p>
+      Xizoahub ek modern web tools platform hai jiska aim hai creators, students aur developers ke liye 
+      internet ko thoda sa fast, simple aur useful banana.  
+    </p>
 
-        <div class="accent-line"></div>
-
-        <!-- ENGLISH CONTENT -->
-        <div id="en" style="display:block">
-          <p class="lead">
-            This tool lets you fetch and download YouTube video thumbnails across quality levels — from small previews to the highest resolution available. Paste a YouTube URL or video ID and pick the size you want.
-          </p>
-
-          <ul class="features">
-            <li>Supports all public YouTube videos (no account needed).</li>
-            <li>Multiple quality options: default → high → max resolution (if available).</li>
-            <li>One-click download or open in new tab for saving on mobile/desktop.</li>
-            <li>Privacy-first: we don't store your video URLs or thumbnails.</li>
-          </ul>
-
-          <div style="margin-top:10px" class="cta">
-            <a class="btn" href="https://youtubethumbnaildownload.xizoa.com/#" target="_blank" rel="noopener">Open Thumbnail Downloader</a>
-            <a class="mutebtn" href="https://youtubethumbnaildownload.xizoa.com/" target="_blank" rel="noopener">Visit original tool</a>
-          </div>
-
-          <h3 style="margin-top:18px">How it works</h3>
-          <p class="small">
-            YouTube stores thumbnails at several standard paths (e.g. `maxresdefault.jpg`, `hqdefault.jpg`). Our frontend tries these paths and presents the best working image to you. If a particular size isn't available, it falls back gracefully.
-          </p>
-
-          <h3 style="margin-top:12px">Note (read this)</h3>
-          <p class="small">
-            Thumbnails belong to the original video creators. This tool only makes it easy to download what YouTube already serves publicly. Don't republish copyrighted images without permission.
-          </p>
-
-        </div>
-
-        <!-- HINGLISH CONTENT -->
-        <div id="hi" style="display:none">
-          <p class="lead">
-            Yeh tool tumhe YouTube video ke thumbnails ekdum asaani se download karne deta hai — chhote preview se leke sabse badi quality tak (agar available ho). Bas video ka URL ya ID paste karo aur size chun lo.
-          </p>
-
-          <ul class="features">
-            <li>Kisi bhi public YouTube video ke liye kaam karta hai — account nahi chahiye.</li>
-            <li>Quality options: default → high → max resolution (jab available ho).</li>
-            <li>Ek-click download — mobile ya desktop dono pe safe.</li>
-            <li>Privacy-first: hum tumhare URLs ya images save nahi karte.</li>
-          </ul>
-
-          <div style="margin-top:10px" class="cta">
-            <a class="btn" href="https://youtubethumbnaildownload.xizoa.com/#" target="_blank" rel="noopener">Thumbnail Downloader kholo</a>
-            <a class="mutebtn" href="https://youtubethumbnaildownload.xizoa.com/" target="_blank" rel="noopener">Original tool pe jao</a>
-          </div>
-
-          <h3 style="margin-top:18px">Kaise kaam karta hai</h3>
-          <p class="small">
-            YouTube kuch standard thumbnail file paths use karta hai (jaise `maxresdefault.jpg`, `hqdefault.jpg`). Hamara frontend in paths ko check karta hai aur jo best image milti hai vo dikhata hai. Agar koi size nahi milta to fallback use hota hai.
-          </p>
-
-          <h3 style="margin-top:12px">Note</h3>
-          <p class="small">
-            Thumbnails original creators ke hotey hain. Yeh tool sirf publicly available thumbnails ko download karna aasan banata hai. Copyrighted images ko bina permission ke republish mat karo.
-          </p>
-        </div>
-
-        <div style="margin-top:16px" class="small">
-          Pro tip: agar tumhara tool pe kuch extra feature chahiye (bulk download, zip output, watermark removal notice, or preview grid), batao — main seedha `tools.html` and `index.html` ke saath integrate karke code bana dunga.
-        </div>
-      </section>
-
-      <aside class="card">
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <div>
-            <div style="font-weight:800">Quick facts</div>
-            <div class="small" style="margin-top:6px">
-              Domain: <a href="https://youtubethumbnaildownload.xizoa.com/" target="_blank" rel="noopener">youtubethumbnaildownload.xizoa.com</a><br>
-              Tool type: Client-side fetch + direct links<br>
-              Primary users: Creators, editors, thumbnail designers
-            </div>
-          </div>
-
-          <div>
-            <div style="font-weight:800">Why users love it</div>
-            <div class="small" style="margin-top:6px">
-              Fast previews, multiple sizes, works on mobile, no signup — basic, brutal utility. Aur haan, time bachata hai.
-            </div>
-          </div>
-
-          <div>
-            <div style="font-weight:800">Contact</div>
-            <div class="small" style="margin-top:6px">For suggestions or collabs: <a href="mailto:hello@xizoa.com">hello@xizoa.com</a></div>
-          </div>
-        </div>
-      </aside>
+    <div class="card">
+      <h2>Our Mission</h2>
+      <p>
+        Hamara mission hai simple tools provide karna jo:
+        <br>• Fast ho  
+        <br>• Free ho  
+        <br>• Secure ho  
+        <br>• Mobile-friendly ho  
+      </p>
+      <p>
+        YouTube Thumbnail Downloader hamara sabse popular tool hai — jisse aap HD, SD, HQ thumbnails instant download kar sakte ho without any signup or ads.
+      </p>
     </div>
+
+    <div class="card">
+      <h2>What We Offer</h2>
+      <p>✔ YouTube Thumbnail Downloader  
+      <br>✔ PDF Tools  
+      <br>✔ Image Converter  
+      <br>✔ SEO Tools  
+      <br>✔ AI-based Content Utilities  
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Why Trust Us?</h2>
+      <p>
+        • 100% Free & Ad-Light Experience  
+        <br>• No personal data collection  
+        <br>• Open-source approach  
+        <br>• Secure HTTPS environment  
+      </p>
+      <p>
+        Har tool ko manually test kiya jata hai to ensure best performance and smooth user experience.
+      </p>
+    </div>
+
   </main>
 
   <footer>
-    <div style="max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:10px">
-      <div>© <strong>xizoa</strong> — Thumbnail Tools</div>
-      <div class="small">Built for speed. Use responsibly.</div>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>XIZOAHUB</h4>
+        <p style="color:#94a3b8;">Tools created for modern creators.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <a href="/">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="https://github.com/xizoahub">GitHub</a>
+        <a href="#">YouTube</a>
+        <a href="#">X / Twitter</a>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2024 Xizoahub. All rights reserved.
     </div>
   </footer>
 
-  <script>
-    const en = document.getElementById('en');
-    const hi = document.getElementById('hi');
-    document.getElementById('show-en').addEventListener('click', ()=>{
-      en.style.display='block'; hi.style.display='none';
-      localStorage.setItem('lang','en');
-      document.getElementById('show-en').style.opacity='1';
-      document.getElementById('show-hi').style.opacity='0.8';
-    });
-    document.getElementById('show-hi').addEventListener('click', ()=>{
-      en.style.display='none'; hi.style.display='block';
-      localStorage.setItem('lang','hi');
-      document.getElementById('show-hi').style.opacity='1';
-      document.getElementById('show-en').style.opacity='0.8';
-    });
-
-    (function(){
-      const lang = localStorage.getItem('lang') || 'en';
-      if(lang==='hi'){ document.getElementById('show-hi').click(); }
-      else { document.getElementById('show-en').click(); }
-    })();
-  </script>
 </body>
 </html>
