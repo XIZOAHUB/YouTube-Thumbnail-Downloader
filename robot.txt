@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+
 Sitemap: https://youtubethumbnaildownload.xizoa.com/sitemap.xml
